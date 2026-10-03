@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Publisher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #file {
+      margin-top: 15px;
+    }
+
+    #status {
+      margin-top: 20px;
+      padding: 12px;
+      background: #eee;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>AI Video Publisher</h1>
+
+    <p>Create and publish AI-generated short videos to TikTok.</p>
+
+    <input type="file" id="file" accept="video/mp4,video/quicktime">
+
+    <br>
+
+    <button onclick="connectTikTok()">
+      Connect TikTok
+    </button>
+
+    <br>
+
+    <button onclick="publishVideo()">
+      Publish to TikTok
+    </button>
+
+    <div id="status">
+      Status: Ready
+    </div>
+  </div>
+
+  <script>
+    function connectTikTok() {
+      document.getElementById("status").innerText =
+        "Status: TikTok connection started.";
+    }
+
+    function publishVideo() {
+      const file = document.getElementById("file").files[0];
+
+      if (!file) {
+        document.getElementById("status").innerText =
+          "Status: Please select a video first.";
+        return;
+      }
+
+      document.getElementById("status").innerText =
+        "Status: Video ready to be published to TikTok.";
+    }
+  </script>
+</body>
+</html>
